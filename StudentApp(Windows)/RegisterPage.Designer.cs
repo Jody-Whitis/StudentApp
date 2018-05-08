@@ -44,28 +44,28 @@
             // 
             // txtFirstname
             // 
-            this.txtFirstname.Location = new System.Drawing.Point(181, 86);
+            this.txtFirstname.Location = new System.Drawing.Point(138, 87);
             this.txtFirstname.Name = "txtFirstname";
             this.txtFirstname.Size = new System.Drawing.Size(180, 22);
             this.txtFirstname.TabIndex = 1;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(181, 126);
+            this.txtLastName.Location = new System.Drawing.Point(138, 126);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(180, 22);
             this.txtLastName.TabIndex = 2;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(181, 178);
+            this.txtUsername.Location = new System.Drawing.Point(138, 179);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(180, 22);
             this.txtUsername.TabIndex = 3;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(181, 234);
+            this.txtPassword.Location = new System.Drawing.Point(138, 223);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(180, 22);
@@ -76,7 +76,7 @@
             this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(224, 335);
+            this.btnRegister.Location = new System.Drawing.Point(138, 320);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(94, 35);
             this.btnRegister.TabIndex = 5;
@@ -86,7 +86,7 @@
             // 
             // txtStudentID
             // 
-            this.txtStudentID.Location = new System.Drawing.Point(181, 283);
+            this.txtStudentID.Location = new System.Drawing.Point(138, 272);
             this.txtStudentID.Name = "txtStudentID";
             this.txtStudentID.Size = new System.Drawing.Size(180, 22);
             this.txtStudentID.TabIndex = 6;
@@ -96,7 +96,7 @@
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(224, 376);
+            this.btnBack.Location = new System.Drawing.Point(138, 373);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(94, 35);
             this.btnBack.TabIndex = 7;
@@ -109,7 +109,7 @@
             this.lblfirstName.AutoSize = true;
             this.lblfirstName.Font = new System.Drawing.Font("Magneto", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblfirstName.ForeColor = System.Drawing.Color.White;
-            this.lblfirstName.Location = new System.Drawing.Point(57, 87);
+            this.lblfirstName.Location = new System.Drawing.Point(12, 87);
             this.lblfirstName.Name = "lblfirstName";
             this.lblfirstName.Size = new System.Drawing.Size(116, 21);
             this.lblfirstName.TabIndex = 8;
@@ -120,7 +120,7 @@
             this.lbllastName.AutoSize = true;
             this.lbllastName.Font = new System.Drawing.Font("Magneto", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbllastName.ForeColor = System.Drawing.Color.White;
-            this.lbllastName.Location = new System.Drawing.Point(45, 127);
+            this.lbllastName.Location = new System.Drawing.Point(13, 127);
             this.lbllastName.Name = "lbllastName";
             this.lbllastName.Size = new System.Drawing.Size(115, 21);
             this.lbllastName.TabIndex = 9;
@@ -131,7 +131,7 @@
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Magneto", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Location = new System.Drawing.Point(57, 179);
+            this.lblUsername.Location = new System.Drawing.Point(26, 179);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(102, 21);
             this.lblUsername.TabIndex = 10;
@@ -142,7 +142,7 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Magneto", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.Color.White;
-            this.lblPassword.Location = new System.Drawing.Point(60, 234);
+            this.lblPassword.Location = new System.Drawing.Point(28, 223);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(100, 21);
             this.lblPassword.TabIndex = 11;
@@ -153,7 +153,7 @@
             this.lblStudentId.AutoSize = true;
             this.lblStudentId.Font = new System.Drawing.Font("Magneto", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStudentId.ForeColor = System.Drawing.Color.White;
-            this.lblStudentId.Location = new System.Drawing.Point(122, 284);
+            this.lblStudentId.Location = new System.Drawing.Point(97, 273);
             this.lblStudentId.Name = "lblStudentId";
             this.lblStudentId.Size = new System.Drawing.Size(31, 21);
             this.lblStudentId.TabIndex = 12;
@@ -164,7 +164,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(531, 450);
+            this.ClientSize = new System.Drawing.Size(362, 451);
             this.Controls.Add(this.lblStudentId);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);

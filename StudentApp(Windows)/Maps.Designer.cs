@@ -45,7 +45,7 @@
             this.gMap.Location = new System.Drawing.Point(35, 89);
             this.gMap.MarkersEnabled = true;
             this.gMap.MaxZoom = 20;
-            this.gMap.MinZoom = 15;
+            this.gMap.MinZoom = 16;
             this.gMap.MouseWheelZoomEnabled = true;
             this.gMap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
             this.gMap.Name = "gMap";
@@ -56,17 +56,17 @@
             this.gMap.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMap.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMap.ShowTileGridLines = false;
-            this.gMap.Size = new System.Drawing.Size(459, 349);
+            this.gMap.Size = new System.Drawing.Size(355, 349);
             this.gMap.TabIndex = 0;
-            this.gMap.Zoom = 15D;
-            this.gMap.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(this.gMap_OnMarkerClick);
+            this.gMap.Zoom = 16D;
+            this.gMap.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(this.makeAppointment);
             this.gMap.OnPolygonClick += new GMap.NET.WindowsForms.PolygonClick(this.gMap_OnPolygonClick);
             this.gMap.OnPolygonEnter += new GMap.NET.WindowsForms.PolygonEnter(this.gMap_OnPolygonEnter);
             this.gMap.Load += new System.EventHandler(this.Maps_Load);
             // 
             // txtBuilding
             // 
-            this.txtBuilding.Location = new System.Drawing.Point(87, 12);
+            this.txtBuilding.Location = new System.Drawing.Point(35, 12);
             this.txtBuilding.Multiline = true;
             this.txtBuilding.Name = "txtBuilding";
             this.txtBuilding.Size = new System.Drawing.Size(355, 56);
@@ -74,12 +74,15 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(213, 454);
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(152, 455);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.Size = new System.Drawing.Size(113, 33);
             this.btnBack.TabIndex = 2;
             this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // Maps
@@ -87,7 +90,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(540, 500);
+            this.ClientSize = new System.Drawing.Size(437, 500);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.txtBuilding);
             this.Controls.Add(this.gMap);

@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,7 @@ namespace StudentApp_Windows_
         {
             InitializeComponent();
         }
+
         public bool validUser = false;
         public string firstName;
         public string lastName;
@@ -26,23 +28,29 @@ namespace StudentApp_Windows_
         List<string> userDatabase;
         private void ValidateUser(object sender, EventArgs e)
         {
+            var dataPass = Encoding.ASCII.GetBytes(txtPassword.Text);
+            var sha1 = new SHA1CryptoServiceProvider();
+            var sha1Pass = sha1.ComputeHash(dataPass);
+            
+            
+            string matchPass= "";
+            foreach(var sha1v in sha1Pass)
+            {
+                matchPass += sha1v.ToString();
+            }
 
-
+            
            using (SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename
 =C:\Users\Jcomp\Documents\College\Senior Project\StudentApp(Windows)\StudentApp(Windows)\StudentApp.mdf;Integrated Security=True"))
             {
                 SqlCommand userMatch = new SqlCommand("Select * from [StudentTable] where username=@username and password=@password", conn);
                 conn.Open();
                 userMatch.Parameters.AddWithValue("@username", txtUsername.Text);
-                userMatch.Parameters.AddWithValue("@password", txtPassword.Text);
+                userMatch.Parameters.AddWithValue("@password", matchPass);
 
                 SqlDataReader reader = userMatch.ExecuteReader();
                 userDatabase = new List<string>();
-
-                
-
-               
-
+                 
 
                 if (reader.HasRows)
                 {
@@ -56,13 +64,15 @@ namespace StudentApp_Windows_
                     lastName = reader["lastname"].ToString();
                 }
 
+
+                    CurrentUser.Fname= firstName;
+                    CurrentUser.Sid = studentID;
+                    CurrentUser.Lname = lastName;
                     HomePage home = new HomePage();
                     home.Tag = this;
                     home.Show(this);
                     Hide();
-                    CurrentUser.Fname= firstName;
-                    CurrentUser.Sid = studentID;
-                    CurrentUser.Lname = lastName;
+                   
 
                 }
 

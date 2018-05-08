@@ -49,6 +49,8 @@
             this.appointmentTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.studentAppDataSet2 = new StudentApp_Windows_.StudentAppDataSet2();
             this.appointmentTableTableAdapter1 = new StudentApp_Windows_.StudentAppDataSet2TableAdapters.AppointmentTableTableAdapter();
+            this.lstAppointments = new System.Windows.Forms.ListBox();
+            this.dtTime = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentAppAppointment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgAppointments)).BeginInit();
@@ -58,22 +60,26 @@
             // 
             // btnMakeAppointment
             // 
-            this.btnMakeAppointment.Location = new System.Drawing.Point(210, 230);
+            this.btnMakeAppointment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnMakeAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMakeAppointment.ForeColor = System.Drawing.Color.White;
+            this.btnMakeAppointment.Location = new System.Drawing.Point(159, 142);
             this.btnMakeAppointment.Name = "btnMakeAppointment";
-            this.btnMakeAppointment.Size = new System.Drawing.Size(75, 23);
+            this.btnMakeAppointment.Size = new System.Drawing.Size(158, 56);
             this.btnMakeAppointment.TabIndex = 0;
             this.btnMakeAppointment.Text = "Make Appointment";
-            this.btnMakeAppointment.UseVisualStyleBackColor = true;
+            this.btnMakeAppointment.UseVisualStyleBackColor = false;
             this.btnMakeAppointment.Click += new System.EventHandler(this.btnMakeAppointment_Click);
             // 
             // btnViewAppointment
             // 
-            this.btnViewAppointment.Location = new System.Drawing.Point(410, 230);
+            this.btnViewAppointment.Location = new System.Drawing.Point(12, 415);
             this.btnViewAppointment.Name = "btnViewAppointment";
             this.btnViewAppointment.Size = new System.Drawing.Size(75, 23);
             this.btnViewAppointment.TabIndex = 1;
             this.btnViewAppointment.Text = "View Appointment";
             this.btnViewAppointment.UseVisualStyleBackColor = true;
+            this.btnViewAppointment.Visible = false;
             this.btnViewAppointment.Click += new System.EventHandler(this.btnViewAppointment_Click);
             // 
             // appointmentTableBindingSource
@@ -92,12 +98,15 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(304, 415);
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(180, 399);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.Size = new System.Drawing.Size(121, 39);
             this.btnBack.TabIndex = 3;
             this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // lblData
@@ -105,7 +114,7 @@
             this.lblData.AutoSize = true;
             this.lblData.Font = new System.Drawing.Font("Magneto", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblData.ForeColor = System.Drawing.Color.White;
-            this.lblData.Location = new System.Drawing.Point(59, 29);
+            this.lblData.Location = new System.Drawing.Point(43, 31);
             this.lblData.Name = "lblData";
             this.lblData.Size = new System.Drawing.Size(54, 21);
             this.lblData.TabIndex = 4;
@@ -116,7 +125,7 @@
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Magneto", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(119, 29);
+            this.lblTime.Location = new System.Drawing.Point(43, 71);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(55, 21);
             this.lblTime.TabIndex = 5;
@@ -127,7 +136,7 @@
             this.lblBuildingName.AutoSize = true;
             this.lblBuildingName.Font = new System.Drawing.Font("Magneto", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBuildingName.ForeColor = System.Drawing.Color.White;
-            this.lblBuildingName.Location = new System.Drawing.Point(77, 114);
+            this.lblBuildingName.Location = new System.Drawing.Point(21, 114);
             this.lblBuildingName.Name = "lblBuildingName";
             this.lblBuildingName.Size = new System.Drawing.Size(86, 21);
             this.lblBuildingName.TabIndex = 7;
@@ -135,7 +144,9 @@
             // 
             // dtAppointment
             // 
-            this.dtAppointment.Location = new System.Drawing.Point(193, 29);
+            this.dtAppointment.CalendarFont = new System.Drawing.Font("Magneto", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtAppointment.CustomFormat = "";
+            this.dtAppointment.Location = new System.Drawing.Point(142, 29);
             this.dtAppointment.MinDate = new System.DateTime(2018, 4, 27, 0, 0, 0, 0);
             this.dtAppointment.Name = "dtAppointment";
             this.dtAppointment.Size = new System.Drawing.Size(246, 22);
@@ -143,7 +154,7 @@
             // 
             // txtBuildingName
             // 
-            this.txtBuildingName.Location = new System.Drawing.Point(193, 114);
+            this.txtBuildingName.Location = new System.Drawing.Point(142, 113);
             this.txtBuildingName.Name = "txtBuildingName";
             this.txtBuildingName.Size = new System.Drawing.Size(246, 22);
             this.txtBuildingName.TabIndex = 9;
@@ -159,11 +170,12 @@
             this.bidDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn});
             this.dgAppointments.DataSource = this.appointmentTableBindingSource1;
-            this.dgAppointments.Location = new System.Drawing.Point(123, 259);
+            this.dgAppointments.Location = new System.Drawing.Point(25, 204);
             this.dgAppointments.Name = "dgAppointments";
             this.dgAppointments.RowTemplate.Height = 24;
-            this.dgAppointments.Size = new System.Drawing.Size(465, 150);
+            this.dgAppointments.Size = new System.Drawing.Size(427, 24);
             this.dgAppointments.TabIndex = 10;
+            this.dgAppointments.Visible = false;
             // 
             // aIdDataGridViewTextBoxColumn
             // 
@@ -209,12 +221,34 @@
             // 
             this.appointmentTableTableAdapter1.ClearBeforeFill = true;
             // 
+            // lstAppointments
+            // 
+            this.lstAppointments.FormattingEnabled = true;
+            this.lstAppointments.ItemHeight = 16;
+            this.lstAppointments.Location = new System.Drawing.Point(12, 244);
+            this.lstAppointments.Name = "lstAppointments";
+            this.lstAppointments.Size = new System.Drawing.Size(440, 132);
+            this.lstAppointments.TabIndex = 11;
+            // 
+            // dtTime
+            // 
+            this.dtTime.CalendarFont = new System.Drawing.Font("Magneto", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtTime.CustomFormat = "hh:mm";
+            this.dtTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtTime.Location = new System.Drawing.Point(271, 71);
+            this.dtTime.MinDate = new System.DateTime(2018, 4, 27, 0, 0, 0, 0);
+            this.dtTime.Name = "dtTime";
+            this.dtTime.Size = new System.Drawing.Size(117, 22);
+            this.dtTime.TabIndex = 12;
+            // 
             // Appointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(722, 450);
+            this.ClientSize = new System.Drawing.Size(496, 450);
+            this.Controls.Add(this.dtTime);
+            this.Controls.Add(this.lstAppointments);
             this.Controls.Add(this.dgAppointments);
             this.Controls.Add(this.txtBuildingName);
             this.Controls.Add(this.dtAppointment);
@@ -259,5 +293,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ListBox lstAppointments;
+        private System.Windows.Forms.DateTimePicker dtTime;
     }
 }

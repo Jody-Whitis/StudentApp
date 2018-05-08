@@ -32,7 +32,8 @@ namespace StudentApp_Windows_
         public static string Password { get; set; }
 
         public static int Sid { get; set; }
-
+        
+        public static string Place { get; set; }
 
 
 

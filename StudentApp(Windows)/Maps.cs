@@ -117,10 +117,7 @@ namespace StudentApp_Windows_
     };
         #endregion
 
-
-
-
-
+         
         /*
           * bookbee
          * eidman
@@ -129,11 +126,7 @@ namespace StudentApp_Windows_
          * music
          * 
          * */
-
-
-
-
-
+          
         private void Maps_Load(object sender, EventArgs e)
         {
             gMap.MapProvider = GoogleMapProvider.Instance;
@@ -463,33 +456,36 @@ namespace StudentApp_Windows_
             markerlhsbbiology.ToolTip.Stroke = Pens.Orange;
             gMap.Overlays.Add(markerslhsbbiology);
             #endregion
-
-
-
-
-
+             
         }
 
 
-         
+        private void makeAppointment(GMapMarker item, MouseEventArgs e)
+        {
+            CurrentUser.Place = item.ToolTipText;
+            if(e.Clicks < 2)
+            {
+            Appointment apt =  new Appointment();
+            apt.Tag = this;
+
+            apt.Show(this);
+            Hide();
+            }
+          
+        }
 
         private void gMap_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
             txtBuilding.Text = item.ToolTipText;
             Console.WriteLine("Building " + item.ToolTipText);
-          
-
+            CurrentUser.Place = item.ToolTipText;
+/*
             try
             {
-
+                
             using (SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=
 C:\Users\Jcomp\Documents\College\Senior Project\StudentApp(Windows)\StudentApp(Windows)\StudentApp.mdf;Integrated Security=True"))
-            {
-
-
-
-
-               
+            { 
                 SqlCommand userMatch = new SqlCommand("INSERT INTO [AppointmentTable] (aId,name,sid) VALUES (@aid,@name,@sid)", conn);
                 conn.Open();
                 userMatch.Parameters.AddWithValue("@name", txtBuilding.Text);
@@ -523,16 +519,17 @@ C:\Users\Jcomp\Documents\College\Senior Project\StudentApp(Windows)\StudentApp(W
                     SqlDataReader reader = userMatch.ExecuteReader();
 
                     conn.Close();
+
+
                     Appointment appointment = new Appointment();
                     appointment.Tag = this;
-
                     appointment.Show(this);
                     Hide();
                 }
-             
-
+         
              }
 
+    */
 
 
 
@@ -554,7 +551,6 @@ C:\Users\Jcomp\Documents\College\Senior Project\StudentApp(Windows)\StudentApp(W
         {   
             HomePage home = new HomePage();
             home.Tag = this;
-
             home.Show(this);
             Hide();
          

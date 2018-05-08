@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,6 +22,16 @@ namespace StudentApp_Windows_
         private void btnRegister_Click(object sender, EventArgs e)
         {
 
+            var dataPass = Encoding.ASCII.GetBytes(txtPassword.Text);
+            var sha1 = new SHA1CryptoServiceProvider();
+            var sha1Pass = sha1.ComputeHash(dataPass);
+
+
+            string matchPass = "";
+            foreach (var sha1v in sha1Pass)
+            {
+                matchPass += sha1v.ToString();
+            }
 
             try
             {

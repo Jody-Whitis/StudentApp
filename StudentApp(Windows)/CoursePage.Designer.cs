@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtCourseID = new System.Windows.Forms.TextBox();
             this.txtCourseName = new System.Windows.Forms.TextBox();
             this.txtSection = new System.Windows.Forms.TextBox();
@@ -40,6 +41,12 @@
             this.lblSection = new System.Windows.Forms.Label();
             this.lblBuilding = new System.Windows.Forms.Label();
             this.lblRoomNumber = new System.Windows.Forms.Label();
+            this.studentAppDataSetCourses = new StudentApp_Windows_.StudentAppDataSetCourses();
+            this.courseTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.courseTableTableAdapter = new StudentApp_Windows_.StudentAppDataSetCoursesTableAdapters.CourseTableTableAdapter();
+            this.lstCourses = new System.Windows.Forms.ListBox();
+            ((System.ComponentModel.ISupportInitialize)(this.studentAppDataSetCourses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseTableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtCourseID
@@ -80,8 +87,9 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(317, 404);
+            this.btnSave.Location = new System.Drawing.Point(227, 404);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(107, 34);
             this.btnSave.TabIndex = 5;
@@ -92,8 +100,9 @@
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(68, 404);
+            this.btnBack.Location = new System.Drawing.Point(30, 404);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(98, 34);
             this.btnBack.TabIndex = 6;
@@ -156,12 +165,36 @@
             this.lblRoomNumber.TabIndex = 11;
             this.lblRoomNumber.Text = "Room Number";
             // 
+            // studentAppDataSetCourses
+            // 
+            this.studentAppDataSetCourses.DataSetName = "StudentAppDataSetCourses";
+            this.studentAppDataSetCourses.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // courseTableBindingSource
+            // 
+            this.courseTableBindingSource.DataMember = "CourseTable";
+            this.courseTableBindingSource.DataSource = this.studentAppDataSetCourses;
+            // 
+            // courseTableTableAdapter
+            // 
+            this.courseTableTableAdapter.ClearBeforeFill = true;
+            // 
+            // lstCourses
+            // 
+            this.lstCourses.FormattingEnabled = true;
+            this.lstCourses.ItemHeight = 16;
+            this.lstCourses.Location = new System.Drawing.Point(30, 282);
+            this.lstCourses.Name = "lstCourses";
+            this.lstCourses.Size = new System.Drawing.Size(304, 84);
+            this.lstCourses.TabIndex = 12;
+            // 
             // CoursePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(508, 450);
+            this.ClientSize = new System.Drawing.Size(367, 450);
+            this.Controls.Add(this.lstCourses);
             this.Controls.Add(this.lblRoomNumber);
             this.Controls.Add(this.lblBuilding);
             this.Controls.Add(this.lblSection);
@@ -176,6 +209,9 @@
             this.Controls.Add(this.txtCourseID);
             this.Name = "CoursePage";
             this.Text = "CoursePage";
+            this.Load += new System.EventHandler(this.CoursePage_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.studentAppDataSetCourses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseTableBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,5 +231,9 @@
         private System.Windows.Forms.Label lblSection;
         private System.Windows.Forms.Label lblBuilding;
         private System.Windows.Forms.Label lblRoomNumber;
+        private StudentAppDataSetCourses studentAppDataSetCourses;
+        private System.Windows.Forms.BindingSource courseTableBindingSource;
+        private StudentAppDataSetCoursesTableAdapters.CourseTableTableAdapter courseTableTableAdapter;
+        private System.Windows.Forms.ListBox lstCourses;
     }
 }

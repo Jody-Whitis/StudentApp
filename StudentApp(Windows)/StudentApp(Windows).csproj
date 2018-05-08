@@ -142,6 +142,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StudentAppDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="StudentAppDataSetCourses.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentAppDataSetCourses.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Appointment.resx">
       <DependentUpon>Appointment.cs</DependentUpon>
     </EmbeddedResource>
@@ -239,6 +244,17 @@
     </None>
     <None Include="StudentAppDataSet3.xss">
       <DependentUpon>StudentAppDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="StudentAppDataSetCourses.xsc">
+      <DependentUpon>StudentAppDataSetCourses.xsd</DependentUpon>
+    </None>
+    <None Include="StudentAppDataSetCourses.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StudentAppDataSetCourses.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StudentAppDataSetCourses.xss">
+      <DependentUpon>StudentAppDataSetCourses.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

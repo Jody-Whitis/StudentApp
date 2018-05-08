@@ -17,10 +17,16 @@ namespace StudentApp_Windows_
         private string fullDate;
         private string time;
         private int aid;
-
+        private double hour;
+        private double min;
+        private double sec;
+        private string fullTime;
+        private string amPm = "am";
         public Appointment()
         {
             InitializeComponent();
+            txtBuildingName.Text = CurrentUser.Place;
+            fillAppointmentList();
         }
 
 
@@ -54,9 +60,19 @@ namespace StudentApp_Windows_
 
         private void btnMakeAppointment_Click(object sender, EventArgs e)
         {
- 
-            
-
+            #region 12hr clock
+            hour = dtTime.Value.Hour;
+            if(hour > 12 && hour != 12)
+            {
+                hour %= 12;
+                amPm = "PM";
+            }
+           
+            min = dtTime.Value.Minute;
+            sec = dtTime.Value.Second;
+            sec = Math.Floor(sec * 100) / 100;
+            #endregion
+            fullTime = hour.ToString() + ":" + min.ToString() + " "  + amPm;
 
             try
             {
@@ -76,17 +92,16 @@ C:\Users\Jcomp\Documents\College\Senior Project\StudentApp(Windows)\StudentApp(W
 
                     userMatch.Parameters.AddWithValue("@name", txtBuildingName.Text);
                     userMatch.Parameters.AddWithValue("@sid", CurrentUser.Sid);
-                   // userMatch.Parameters.AddWithValue("@aid", 4);
                     userMatch.Parameters.AddWithValue("@date", fullDate);
-                    userMatch.Parameters.AddWithValue("@time", time);
+                    userMatch.Parameters.AddWithValue("@time", fullTime);
                     userMatch.ExecuteNonQuery();
 
 
-                    MessageBox.Show(CurrentUser.Fname + " " + CurrentUser.Lname + "SAVED at [" + fullDate + "]");
+                    MessageBox.Show(CurrentUser.Fname + "" + CurrentUser.Lname + "SAVED at [" + fullTime + "]");
 
                     conn.Close();
-
-
+                    dgAppointments.Update();
+                    dgAppointments.Refresh();
 
                 }
             }
@@ -95,34 +110,92 @@ C:\Users\Jcomp\Documents\College\Senior Project\StudentApp(Windows)\StudentApp(W
             catch (Exception ex)
             {
 
-
                 using (SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename
 =C:\Users\Jcomp\Documents\College\Senior Project\StudentApp(Windows)\StudentApp(Windows)\StudentApp.mdf;Integrated Security=True"))
                 {
                     SqlCommand userMatch = new SqlCommand("UPDATE [AppointmentTable] SET name=@name, sid=@sid, aid=@aid,date=@date,time=@time WHERE aId = @aid", conn);
                     conn.Open();
-                    fullDate = (dtAppointment.Value.Month + "/"+ dtAppointment.Value.Day + "/" + dtAppointment.Value.Year).ToString();
+                    fullDate = (dtAppointment.Value.Month + "/" + dtAppointment.Value.Day + "/" + dtAppointment.Value.Year).ToString();
                     time = dtAppointment.Value.TimeOfDay.ToString();
 
                     userMatch.Parameters.AddWithValue("@name", txtBuildingName.Text);
                     userMatch.Parameters.AddWithValue("@sid", CurrentUser.Sid);
-                    userMatch.Parameters.AddWithValue("@aid", 4);
-                    userMatch.Parameters.AddWithValue("@date", fullDate );
-                    userMatch.Parameters.AddWithValue("@time", time);
+                    userMatch.Parameters.AddWithValue("@aid", 2);
+                    userMatch.Parameters.AddWithValue("@date", fullDate);
+                    userMatch.Parameters.AddWithValue("@time", fullTime);
                     userMatch.ExecuteNonQuery();
 
-                    MessageBox.Show(CurrentUser.Fname + " " + CurrentUser.Lname + "SAVED at [" + fullDate + "]");
+                    MessageBox.Show(CurrentUser.Fname + " " + CurrentUser.Lname + "SAVED at [" + fullTime + "]");
 
                     conn.Close();
 
                 }
-
              }
 
 
 
 
+        }
+   
+        private void fillAppointmentList()
+        {
+            List<string> appointmentList = new List<string>();
+            try
+            {
+
+                using (SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=
+C:\Users\Jcomp\Documents\College\Senior Project\StudentApp(Windows)\StudentApp(Windows)\StudentApp.mdf;Integrated Security=True"))
+                {
+
+//"SELECT * FROM [AppointmentTable] WHERE sid=@sid"
+                    
+
+                    SqlCommand userMatch = new SqlCommand("SELECT s.id,s.firstname,s.lastname,a.date,a.time,a.name FROM StudentTable s INNER JOIN AppointmentTable a ON " +
+                    "a.sid = s.id WHERE s.id = @sid AND time=a.time AND date=a.date AND name=a.name", conn);
+                    conn.Open();
+
+                    userMatch.Parameters.AddWithValue("@sid", CurrentUser.Sid);
+                    SqlDataReader reader = userMatch.ExecuteReader();
+
+
+
+                    if (reader.HasRows)
+                    {
+
+                        while (reader.Read())
+                        {
+                            appointmentList.Add(
+                                reader["date"].ToString() + reader["time"].ToString()
+                                + reader["name"].ToString() + reader["firstname"].ToString()
+                                );
+
+                        }
+
+                        foreach (string apt in appointmentList)
+                        {
+
+                            lstAppointments.Items.Add(apt);
+                        }
+
+                         conn.Close();
+                 
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("***" + ex.ToString() + "***");
+
+            }
+
+
+
 
         }
+
+
+
     }
 }
